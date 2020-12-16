@@ -1,23 +1,18 @@
 resource "aws_instance" "myawsserver" {
-  ami = "ami-0603cbe34fd08cb81"
+  ami = "ami-01e36b7901e884a10"
   instance_type = "t2.micro"
+  key_name = "mohi-keypair"
 
   tags = {
-    Name = "MohiJenkins-Terraform-ec2-instance-V2"
-    Env = "Prod"
-    Creator = "Mohideen"
+    Name = "Mohi-Terraform-Ansible"
+    env = "test"
   }
+  provisioner "local-exec" {
+    command = "echo The servers IP address is ${self.public_ip} && echo ${self.public_ip} > /root/inventory"
+  }
+
 }
-#terraform {
-#  backend "s3" {
-#    bucket  = "mohiterraformtest"
-#    key  = "terraform/state"
-#    region = "us-east-2"
-#   access_key = "XXXXXXXXXXXXXXXXXXXXXX"
-#   secret_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-#  }
-#}
+
 output "myawsserver-ip" {
   value = "${aws_instance.myawsserver.public_ip}"
 }
-
