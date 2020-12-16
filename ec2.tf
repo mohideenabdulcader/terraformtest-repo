@@ -3,7 +3,7 @@ resource "aws_instance" "myawsserver" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "MohiTest-Terraform-ec2-instance-V2"
+    Name = "MohiJenkinsTest-Terraform-ec2-instance-V2"
     Env = "Prod"
     Creator = "Mohi"
   }
