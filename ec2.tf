@@ -5,6 +5,7 @@ resource "aws_instance" "myawsserver" {
   tags = {
     Name = "MohiTest-Terraform-ec2-instance-V2"
     Env = "Prod"
+    Creator = "Mohi"
   }
 }
 
