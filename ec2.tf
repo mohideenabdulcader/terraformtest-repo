@@ -5,7 +5,7 @@ resource "aws_instance" "myawsserver" {
   tags = {
     Name = "MohiJenkinsTest-Terraform-ec2-instance-V2"
     Env = "Prod"
-    Creator = "Mohi"
+    Creator = "Mohideen"
   }
 }
 
